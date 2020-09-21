@@ -12,7 +12,7 @@ const Records = () => {
     const [recordsResponse, setRecordsResponse] = useState<RecordsResponse>();
     const [activePage, setActivePage] = useState(0);
 
-    useEffect(() =>{
+    useEffect(() => {
         axios.get(`${BASE_URL}/records?LinesPerPage=12&page=${activePage}`)
             .then(response => setRecordsResponse(response.data));
     }, [activePage]);
@@ -23,7 +23,7 @@ const Records = () => {
 
     return (
         <div className="page-container">
-            <Filters link="/charts" linkText="VER GRÁFICO"/>           
+            <Filters link="/charts" linkText="VER GRÁFICO" />
             <table className="records-table" cellPadding="0" cellSpacing="0">
                 <thead>
                     <tr>
@@ -43,9 +43,9 @@ const Records = () => {
                             <td>{record.age}</td>
                             <td className="text-secondary">{record.gamePlatform}</td>
                             <td>{record.genreName}</td>
-                            <td className="text-primary">{record.gameTitle}</td>   
+                            <td className="text-primary">{record.gameTitle}</td>
                         </tr>
-                    ))}                                
+                    ))}
                 </tbody>
             </table>
             <Pagination activePage={activePage} goToPage={handlePageChange} totalPages={recordsResponse?.totalPages} />
