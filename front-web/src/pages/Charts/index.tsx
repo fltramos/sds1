@@ -21,7 +21,7 @@ const initialPieData = {
     series: []
 }
 
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://sds1-franciscoramos.herokuapp.com';
 
 const Charts = () => {
     const [barChartData, setBarChartData] = useState<BarChartData[]>([]);
@@ -54,17 +54,17 @@ const Charts = () => {
                         Jogos mais votados
                     </h1>
                     <div className="games-container">
-                        <Chart options={barOptions} type="bar" width="900" height="650" series={[{data: barChartData}]}/>
+                        <Chart options={barOptions} type="bar" width="700" height="650" series={[{data: barChartData}]}/>
                     </div>
                 </div>
                 <div className="charts">
                     <div className="platform-chart">
                         <h2 className="chart-title">Plataformas</h2>
-                        <Chart options={{...pieOptions, labels: platformData?.labels}} type="donut" series={platformData?.series} width="350" />
+                        <Chart options={{...pieOptions, labels: platformData?.labels}} type="donut" series={platformData?.series} width="300" />
                     </div>
                     <div className="gender-chart">
                         <h2 className="chart-title">Gêneros</h2>
-                        <Chart options={{...pieOptions, labels: genderData?.labels}} type="donut" series={genderData?.series} width="350" />
+                        <Chart options={{...pieOptions, labels: genderData?.labels}} type="donut" series={genderData?.series} width="300" />
                     </div>
                 </div>
             </div>
